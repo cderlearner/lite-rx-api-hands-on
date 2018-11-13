@@ -25,35 +25,35 @@ public class Part08OtherOperations {
 
 	// TODO Return the mono which returns its value faster
 	Mono<User> useFastestMono(Mono<User> mono1, Mono<User> mono2) {
-		return null;
+		return Mono.first(mono1, mono2);
 	}
 
 //========================================================================================
 
 	// TODO Return the flux which returns the first value faster
 	Flux<User> useFastestFlux(Flux<User> flux1, Flux<User> flux2) {
-		return null;
+		return Flux.first(flux1, flux2);
 	}
 
 //========================================================================================
 
 	// TODO Convert the input Flux<User> to a Mono<Void> that represents the complete signal of the flux
 	Mono<Void> fluxCompletion(Flux<User> flux) {
-		return null;
+		return flux.then().log();
 	}
 
 //========================================================================================
 
 	// TODO Return a valid Mono of user for null input and non null input user (hint: Reactive Streams do not accept null values)
 	Mono<User> nullAwareUserToMono(User user) {
-		return null;
+		return Mono.justOrEmpty(user);
 	}
 
 //========================================================================================
 
 	// TODO Return the same mono passed as input parameter, expect that it will emit User.SKYLER when empty
 	Mono<User> emptyToSkyler(Mono<User> mono) {
-		return null;
+		return mono.defaultIfEmpty(User.SKYLER);
 	}
 
 }

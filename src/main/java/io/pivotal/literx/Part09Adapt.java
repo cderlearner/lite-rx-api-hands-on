@@ -47,19 +47,19 @@ public class Part09Adapt {
 
 	// TODO Adapt Flux to RxJava Flowable
 	Flowable<User> fromFluxToFlowable(Flux<User> flux) {
-		return null;
+		return Flowable.unsafeCreate(flux);
 	}
 
 	// TODO Adapt RxJava Flowable to Flux
 	Flux<User> fromFlowableToFlux(Flowable<User> flowable) {
-		return null;
+		return Flux.from(flowable);
 	}
 
 //========================================================================================
 
 	// TODO Adapt Flux to RxJava Observable
 	Observable<User> fromFluxToObservable(Flux<User> flux) {
-		return null;
+		return Observable.fromPublisher(flux);
 	}
 
 	// TODO Adapt RxJava Observable to Flux
